@@ -8,7 +8,6 @@ const getDataFromLocalStorage = () => {
 };
 
 
-
 const getDataFromWebsite = () => {
     // get data from website
     const ProductName = document.getElementById("ProductsName");
@@ -16,7 +15,8 @@ const getDataFromWebsite = () => {
 
     const product = ProductName.value;
     const quantity = ProductQuantity.value;
-    setDataToLocalStorage(product, quantity)
+    setDataToLocalStorage(product, quantity);
+    displayProduct(product, quantity);
     // clear input
     ProductName.value = '';
     ProductQuantity.value = '';
@@ -41,10 +41,10 @@ const displayProduct = (product, quantity) => {
     // create li to set website
     const li = document.createElement("li");
     li.innerText = `${product} : ${quantity}`;
-    document.getElementById("productList").appendChild(li);
+    const olContainer = document.getElementById("productList");
+    olContainer.appendChild(li);
 
 }
-
 
 
 
